@@ -1,3 +1,3 @@
 class Kbot
-    puts "hola"
+    puts "hola, mundo"
 end
