@@ -9,19 +9,24 @@ class Factura
 
     //
     def inputValidation()
-        validateCantidad()
+        @cantidad = validateCantidad()
     end
     
     def validateCantidad()
-        if (!isNumeric?(@cantidad))
-            puts "Favor de proporcionar el parámetro Cantidad en formato numérico."
+        if (!isNumeric?(@cantidad) | !isInteger?(@cantidad))
+            puts "Favor de proporcionar el parámetro Cantidad en formato numérico entero."
             exit
         end
+        return Integer(@cantidad)
     end
 
     def isNumeric?(value)
         Float(value) != nil rescue false
     end
+    def isInteger?(value)
+        Integer(value) != nil rescue false       
+    end
+    
 
 end
 
