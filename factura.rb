@@ -5,11 +5,13 @@ class Factura
             exit
         end
         @cantidad = entries[0]
+        @precio = entries[1]
     end
 
     //
     def inputValidation()
         @cantidad = validateCantidad()
+        validatePrecio()
     end
     
     def validateCantidad()
@@ -21,6 +23,13 @@ class Factura
             puts "Favor de proporcionar el parámetro Cantidad con valor mayor a cero."
         end
         return Integer(@cantidad)
+    end
+
+    def validatePrecio()
+        if (!isNumeric?(@precio))
+            puts "Favor de proporcionar el parámetro Precio en formato numérico."
+            exit
+        end
     end
 
     def isNumeric?(value)
