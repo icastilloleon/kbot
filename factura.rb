@@ -17,6 +17,9 @@ class Factura
             puts "Favor de proporcionar el parámetro Cantidad en formato numérico entero."
             exit
         end
+        if (Integer(@cantidad) <= 0)
+            puts "Favor de proporcionar el parámetro Cantidad con valor mayor a cero."
+        end
         return Integer(@cantidad)
     end
 
@@ -24,7 +27,7 @@ class Factura
         Float(value) != nil rescue false
     end
     def isInteger?(value)
-        Integer(value) != nil rescue false       
+        Integer(value) != nil rescue false
     end
     
 
