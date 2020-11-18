@@ -21,7 +21,12 @@ class Factura
 
     def doProcess()
         impuesto = @impuestos.fetch(@estado.upcase, 0.0)
+
+        'Calcular subtotal (Cantidad * Precio Unitario)'
+        subtotal = @cantidad * @precio
+
         puts "Impuesto a aplicar: #{impuesto}"
+        puts "Subtotal: #{subtotal}"
         
     end
     
