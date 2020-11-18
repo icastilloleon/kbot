@@ -4,6 +4,8 @@ class Factura
             puts "Favor de proporcionar todos los parámetros para la facturación. \nParámetros: Cantidad, Precio Unitario y Estado."
             exit
         end
+        @impuestos = {"CA" => 8.25}
+        
         @cantidad = entries[0]
         @precio = entries[1]
         @estado = entries[2]
@@ -14,8 +16,13 @@ class Factura
         @cantidad = validateCantidad()
         @precio = validatePrecio()
         @estado = validateEstado()
-
         puts "Cantidad: #{@cantidad}, Precio: #{@precio}, Estado: #{@estado}"
+    end
+
+    def doProcess()
+        impuesto = @impuestos.fetch(@estado.upcase, 0.0)
+        puts "Impuesto a aplicar: #{impuesto}"
+        
     end
     
     def validateCantidad()
@@ -66,3 +73,4 @@ end
 
 facturacion = Factura.new(ARGV)
 facturacion.inputValidation()
+facturacion.doProcess()
