@@ -1,7 +1,7 @@
 class Factura
     def initialize(entries)
         if(entries.length < 3)
-            puts "Favor de proporcionar todos los parámetros para la facturación. \nUsage: Cantidad, Precio Unitario y Estado."
+            puts "Favor de proporcionar todos los parámetros para la facturación. \nParámetros: Cantidad, Precio Unitario y Estado."
             exit
         end
         @cantidad = entries[0]
@@ -29,6 +29,9 @@ class Factura
         if (!isNumeric?(@precio))
             puts "Favor de proporcionar el parámetro Precio en formato numérico."
             exit
+        end
+        if (Float(@precio) <= 0)
+            puts "Favor de proporcionar el parámetro Precio con valor mayor a cero."
         end
     end
 
