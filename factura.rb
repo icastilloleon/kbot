@@ -54,12 +54,13 @@ class Factura
         'Aplicar impuesto'
         total = subtotaldcto + montoimpuesto
 
-        printTicket(subtotal, impuesto, montoimpuesto)
+        printTicket(subtotal, impuesto, montoimpuesto, descuento, montodescuento)
     end
 
-    def printTicket(subtotal, impuesto, montoimpuesto)
+    def printTicket(subtotal, impuesto, montoimpuesto, descuento, montodescuento)
         puts "#{@cantidad} * $#{@precio} = $#{subtotal}"
         puts "#{@estado.upcase}(%#{impuesto}) = #{montoimpuesto}"
+        puts "DTO(#{descuento}) = #{montodescuento}"
     end
     
     def validateCantidad()
