@@ -25,8 +25,12 @@ class Factura
         'Calcular subtotal (Cantidad * Precio Unitario)'
         subtotal = @cantidad * @precio
 
-        puts "Impuesto a aplicar: #{impuesto}"
+        'Calcular monto de impuesto'
+        montoimpuesto = (impuesto * subtotal)/100
+
+        puts "Impuesto a aplicar: #{impuesto}%"
         puts "Subtotal: #{subtotal}"
+        puts "Impuesto : #{montoimpuesto}"
         
     end
     
