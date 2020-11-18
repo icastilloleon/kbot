@@ -42,6 +42,9 @@ class Factura
         'Calcular el monto de descuento'
         montodescuento = (descuento * subtotal)/100
 
+        'Aplicar monto de descuento'
+        subtotaldcto = subtotal - montodescuento
+
         'Elegir porcentaje de impuesto'
         impuesto = @impuestos.fetch(@estado.upcase, 0.0)
 
@@ -49,12 +52,10 @@ class Factura
         montoimpuesto = (impuesto * subtotal)/100
 
         
-
-        
-        
         puts "Subtotal: #{subtotal}"
         puts "%Descuento: #{descuento}%"
         puts "Descuento a aplicar: #{montodescuento}"
+        puts "Subtotal: #{subtotaldcto}"
         puts "%Impuesto: #{impuesto}%"
         puts "Impuesto a aplicar: #{montoimpuesto}"
         
