@@ -49,15 +49,19 @@ class Factura
         impuesto = @impuestos.fetch(@estado.upcase, 0.0)
 
         'Calcular monto de impuesto'
-        montoimpuesto = (impuesto * subtotal)/100
+        montoimpuesto = (impuesto * subtotaldcto)/100
+
+        'Aplicar impuesto'
+        total = subtotaldcto + montoimpuesto
 
         
         puts "Subtotal: #{subtotal}"
         puts "%Descuento: #{descuento}%"
-        puts "Descuento a aplicar: #{montodescuento}"
+        puts "Aplicar descuento: #{montodescuento}"
         puts "Subtotal: #{subtotaldcto}"
         puts "%Impuesto: #{impuesto}%"
         puts "Impuesto a aplicar: #{montoimpuesto}"
+        puts "Aplicar impuesto: #{total}"
         
         
     end
