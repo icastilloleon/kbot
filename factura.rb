@@ -28,9 +28,26 @@ class Factura
         'Calcular monto de impuesto'
         montoimpuesto = (impuesto * subtotal)/100
 
+        'Elegir el porcentaje de descuento'
+        case 
+        when (subtotal > 1000) && (subtotal <= 5000)
+            descuento = 3.0
+        when (subtotal > 5000) && (subtotal <= 7000)
+            descuento = 5.0
+        when (subtotal > 7000) && (subtotal <= 10000)
+            descuento = 7.0
+        when (subtotal > 10000) && (subtotal <= 50000)
+            descuento = 10
+        when subtotal > 50000
+            descuento = 15
+        else
+            descuento = 0.0
+        end
+
         puts "Impuesto a aplicar: #{impuesto}%"
         puts "Subtotal: #{subtotal}"
         puts "Impuesto : #{montoimpuesto}"
+        puts "Descuento a aplicar #{descuento}%"
         
     end
     
