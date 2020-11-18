@@ -20,13 +20,8 @@ class Factura
     end
 
     def doProcess()
-        impuesto = @impuestos.fetch(@estado.upcase, 0.0)
-
         'Calcular subtotal (Cantidad * Precio Unitario)'
         subtotal = @cantidad * @precio
-
-        'Calcular monto de impuesto'
-        montoimpuesto = (impuesto * subtotal)/100
 
         'Elegir el porcentaje de descuento'
         case 
@@ -43,11 +38,26 @@ class Factura
         else
             descuento = 0.0
         end
+        
+        'Calcular el monto de descuento'
+        montodescuento = (descuento * subtotal)/100
 
-        puts "Impuesto a aplicar: #{impuesto}%"
+        'Elegir porcentaje de impuesto'
+        impuesto = @impuestos.fetch(@estado.upcase, 0.0)
+
+        'Calcular monto de impuesto'
+        montoimpuesto = (impuesto * subtotal)/100
+
+        
+
+        
+        
         puts "Subtotal: #{subtotal}"
-        puts "Impuesto : #{montoimpuesto}"
-        puts "Descuento a aplicar #{descuento}%"
+        puts "%Descuento: #{descuento}%"
+        puts "Descuento a aplicar: #{montodescuento}"
+        puts "%Impuesto: #{impuesto}%"
+        puts "Impuesto a aplicar: #{montoimpuesto}"
+        
         
     end
     
