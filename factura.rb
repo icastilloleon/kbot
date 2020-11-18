@@ -47,6 +47,10 @@ class Factura
             puts "Favor de proporcionar el parámetro Estado en formato string."
             exit
         end
+        if (@estado.length != 2 )
+            puts "Favor de proporcionaro el parametro Estado con valor de dos caracteres."
+            exit
+        end
         return String(@estado)
     end
 
